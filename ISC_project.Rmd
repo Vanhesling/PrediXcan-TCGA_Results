@@ -2,7 +2,7 @@
 title: "Jessica Fessler, ISC Project"
 output: html_document
 ---
-## Instructions for ISC project:
+## ISC project:
 
 
 ### BACKGROUND
