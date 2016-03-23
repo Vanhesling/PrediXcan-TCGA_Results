@@ -28,27 +28,27 @@ To test: source file
 - Generates boxplot comparing all RNAseq expression levels between 4 participants
 
 **File: gene_expression_analysis.R**  
-To test: source file, plot_expression("normal", "POMZP3")  
+To test: source file, `plot_expression("normal", "POMZP3")`  
 - Generates dot plot with linear model comparing the predicted and observed gene expression for a given tissue type and gene
 
 **File: lm_PC-analysis_bySteps.R**  
-To test: source file, lm_analysis_byStep(sample_type = "normal", step_pc = 2, stop_pc  = 10)
+To test: source file, `lm_analysis_byStep(sample_type = "normal", step_pc = 2, stop_pc  = 10)`
 (Uses plot_lm-PC-analysis_results.R)  
 - Fits linear model between predicted and observed gene expression for normal or tumor tissue samples. Includes PCs up to "stop_pc", and goes by "step_pc".   
 - In example, tests with 0 PC, 2 PCs, 4 PCs, 6 PCs, 8 PCs, and 10 PCs and then plots the number of significant associations (FDR < 0.05).  
 
 **File: lm_analysis_toFile.R**  
-To test: source file, lm_analysis_toFile("normal", 0), save as "normalFile_0PC.txt"  
-lm_analysis_toFile("tumor", 0), save as "tumorFile_0PC.txt"  
+To test: source file, `lm_analysis_toFile("normal", 0)`, save as "normalFile_0PC.txt"  
+`lm_analysis_toFile("tumor", 0)`, save as "tumorFile_0PC.txt"  
 - Saves a text file with the model parameters for linear model for each gene with number of defined PCs  
 
 **File: plot_onePC_result.R**  
-To test: plot_lm_results("normalFile_0PC.txt", "tumorFile_0PC.txt", "Rsquared") (Or whatever file name was used for lm_analysis_toFile)  
+To test: `plot_lm_results("normalFile_0PC.txt", "tumorFile_0PC.txt", "Rsquared")` (Or whatever file name was used for lm_analysis_toFile)  
 - Creates a box plot comparing the linear model parameters for tumor and normal tissue 
 
-plot_lm_results("normalFile_0PC.txt", "tumorFile_0PC.txt", "estimate")  
+`plot_lm_results("normalFile_0PC.txt", "tumorFile_0PC.txt", "estimate")`
 - Additional options for adjusting y-axes  
 
 **File: plot_correlation_results.R**  
-To test: plot_correlations("correlation_data/BRCA_TCGA-matched-normal-RNAseq_PrediXcan-Breast-CORRECTED_correlations_20160226.txt", "correlation_data/BRCA_TCGA-tumor-RNAseq_PrediXcan-Breast-CORRECTED_correlations_20160226.txt", "Pearson")  
+To test: `plot_correlations("correlation_data/BRCA_TCGA-matched-normal-RNAseq_PrediXcan-Breast-CORRECTED_correlations_20160226.txt", "correlation_data/BRCA_TCGA-tumor-RNAseq_PrediXcan-Breast-CORRECTED_correlations_20160226.txt", "Pearson")`  
 - Generates a boxplot comparing the correlation coefficient from predicted vs. observed gene expression in tumor and normal samples  
