@@ -78,11 +78,17 @@ for (i in c(1:pc_len)){
   all_pc_list <- c(all_pc_list, paste0("PC",i))
 }
 
+pc_string <- ""
+for (pc in all_pc_list){
+  pc_string <- paste(pc_string, pc, sep = " + ")
+}
+
+#browser()
 lm_fits <- data.frame()
 
 for (gene in genes_in_prdx){
   if (gene %in% genes_in_RNAseq){
-    fit <- lm(as.formula(paste0("tissue_expression[[gene]] ~ prdx_expression[[gene]] + ",all_pc_list)))
+    fit <- lm(as.formula(paste0("tissue_expression[[gene]] ~ prdx_expression[[gene]]",pc_string)))
     estimate <- coef(summary(fit))[2,1]
     pvalue <- summary(fit)$coefficients[2,4] 
     Rsquared <- summary(fit)$r.squared
